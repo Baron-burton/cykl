@@ -12,7 +12,7 @@ module Cykl
     def time(repo = nil)
       issues = Issues.new.list_issues(repo)
 
-      "Your average cycle time is #{average_cycle_time(issues)} days!"
+      print_and_flush "Your average cycle time is #{average_cycle_time(issues)} days!"
     end
 
     private
@@ -35,6 +35,11 @@ module Cykl
 
     def seconds_in_a_day
       (24 * 60 * 60)
+    end
+
+    def print_and_flush(msg)
+      print msg
+      STDOUT.flush
     end
   end
 end
