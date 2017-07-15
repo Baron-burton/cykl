@@ -5,10 +5,6 @@ module Cykl
 
   class << self
 
-    def issues(repo = nil)
-      Issues.new.list_issues(repo)
-    end
-
     def time(repo = nil)
       issues = Issues.new.list_issues(repo)
 
