@@ -2,4 +2,4 @@
 
 require 'cykl'
 
-Cykl.time
+Cykl.time(ARGV.first)
