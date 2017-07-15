@@ -2,7 +2,6 @@ require 'cykl/issues'
 require 'cykl/version'
 
 module Cykl
-
   class << self
 
     def time(repo = nil)

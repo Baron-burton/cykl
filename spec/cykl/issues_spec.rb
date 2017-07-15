@@ -5,10 +5,10 @@ module Cykl
     context '#list_issues' do
       let(:subject) { described_class.new }
 
-      it 'retrieves the last 30 closed isses for a repo' do
+      it 'retrieves the last 100 closed isses for a repo' do
         issues = subject.list_issues
 
-        expect(issues.count).to eq(30)
+        expect(issues.count).to eq(100)
         expect(issues.sample.state).to eq('closed')
       end
     end
