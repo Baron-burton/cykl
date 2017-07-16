@@ -3,14 +3,22 @@ require 'cykl/version'
 
 module Cykl
   class << self
+    attr_reader :cycle_time
+    private :cycle_time
 
     def time(repo = nil)
       issues = Issues.new.list_issues(repo)
+      @cycle_time = average_cycle_time(issues)
 
-      print_and_flush "Your average cycle time is #{average_cycle_time(issues)} days!"
+      print_and_flush(cycle_time_message)
     end
 
     private
+
+    def cycle_time_message
+      "Your average cycle time is #{cycle_time}" +
+      (cycle_time == 1.00 ? 'day' : 'days')
+    end
 
     def average_cycle_time(issues)
       lifetimes = []
@@ -25,7 +33,7 @@ module Cykl
     def calculate_average(data)
       total = data.inject(:+)
 
-      (total / data.count).round
+      (total / data.count).round(2)
     end
 
     def seconds_in_a_day
