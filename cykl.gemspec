@@ -11,10 +11,10 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{View the cycle-time of your Github issues}
   spec.description   = %q{
-                          Cykl uses the Github API to pull information on issues in your repo.
-                          You can track the average lifetime of your issues, and so you'll be
-                          able to see how long they've spent in a particular column on your
-                          project board (if the board is connected to Github).
+                          Cykl uses the Github API to pull information on the last 100 issues in your repo.
+                          Currently you can track the average lifetime of your issues, and soon you'll be
+                          able to see how long they've spent in a particular column on your project board
+                          (if the board is connected to Github).
                         }
   spec.homepage      = 'https://github.com/Baron-burton/cykl'
   spec.license       = 'MIT'
