@@ -11,6 +11,8 @@ module Cykl
       @cycle_time = average_cycle_time(issues)
 
       print_and_flush(cycle_time_message)
+    rescue Octokit::NotFound
+      print_and_flush('Sorry, Github couldn\'t find anything')
     end
 
     private
