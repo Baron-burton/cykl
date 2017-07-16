@@ -15,7 +15,7 @@ board (if the board is connected to Github)
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'cykl', '0.1.0'
+gem 'cykl', '~> 0.1.1'
 ```
 
 And then execute:
