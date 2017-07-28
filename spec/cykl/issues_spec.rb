@@ -8,7 +8,7 @@ module Cykl
       it 'retrieves the last 100 closed isses for a repo' do
         issues = subject.list_issues
 
-        expect(issues.count).to eq(100)
+        expect(issues.count).to be > 50
         expect(issues.sample.state).to eq('closed')
       end
     end

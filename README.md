@@ -2,7 +2,7 @@
 
 View the cycle-time of your Github issues
 
-Cykl uses the Github API via Octokit to pull information on the last 100 closed
+Cykl uses the Github API via Octokit to pull information on at least the last 50 closed
 issues in your repo. Currently, you can track the average lifetime of those issues.
 
 ### Upcoming
@@ -15,7 +15,7 @@ board (if the board is connected to Github)
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'cykl', '~> 0.1.1'
+gem 'cykl', '~> 0.1.3'
 ```
 
 And then execute:

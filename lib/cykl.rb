@@ -7,13 +7,13 @@ module Cykl
     private :cycle_time
 
     def time(repo = nil)
-      print_and_flush "Pulling in your issues, please wait..."
+      puts_and_flush "Pulling in your issues, please wait..."
       issues = Issues.new.list_issues(repo)
       @cycle_time = average_cycle_time(issues)
 
-      print_and_flush(cycle_time_message)
+      puts_and_flush(cycle_time_message)
     rescue Octokit::NotFound
-      print_and_flush('Sorry, Github couldn\'t find anything')
+      puts_and_flush('Sorry, Github couldn\'t find anything')
     end
 
     private
@@ -43,8 +43,8 @@ module Cykl
       (24 * 60 * 60)
     end
 
-    def print_and_flush(msg)
-      print msg
+    def puts_and_flush(msg)
+      puts msg
       STDOUT.flush
     end
   end
