@@ -7,6 +7,7 @@ module Cykl
     private :cycle_time
 
     def time(repo = nil)
+      print_and_flush "Pulling in your issues, please wait..."
       issues = Issues.new.list_issues(repo)
       @cycle_time = average_cycle_time(issues)
 
