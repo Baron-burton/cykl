@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['brandon.anthony.burton@gmail.com']
 
   spec.description   = "Track the cycle-time of your repo's issues"
+  spec.summary       = spec.description
   spec.homepage      = 'https://github.com/Baron-burton/cykl'
   spec.license       = 'MIT'
 
