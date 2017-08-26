@@ -11,13 +11,13 @@ module Cykl
       :label,
       type: :string,
       aliases: '-l',
+      lazy_default: '',
       desc: 'search for repositories with a given label'
     )
 
     def time(repo = nil)
       initializer_message(repo, options)
-      issues = Issues.new.list_issues(repo, options[:label])
-      @cycle_time = average_cycle_time(issues)
+      list_of_issues(repo, options)
 
       puts_and_flush(cycle_time_message)
     rescue Octokit::NotFound
@@ -26,8 +26,13 @@ module Cykl
 
     private
 
+    def list_of_issues(repo, options)
+      issues = Issues.new.list_issues(repo, options)
+      @cycle_time = average_cycle_time(issues)
+    end
+
     def cycle_time_message
-      "Your average cycle time is #{cycle_time}" +
+      "\nYour average cycle time is #{cycle_time}" +
       (cycle_time == 1.00 ? 'day' : 'days')
     end
 
@@ -52,10 +57,10 @@ module Cykl
     end
 
     def initializer_message(repo, options)
-      if !options[:label].nil?
+      if !options[:label].empty?
         puts_and_flush(
-          "Attempting to pull in your #{options[:label]} issues
-          from #{repo}, please wait..."
+          "Attempting to pull in your #{options[:label]} issues \n" +
+          "from #{repo}, please wait..."
         )
       else
         puts_and_flush("Pulling in your issues from #{repo}, please wait...")
