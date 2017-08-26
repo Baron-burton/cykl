@@ -9,13 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Brandon Burton']
   spec.email         = ['brandon.anthony.burton@gmail.com']
 
-  spec.summary       = %q{View the cycle-time of your Github issues}
-  spec.description   = %q{
-                          Cykl uses the Github API to pull information on the last 100 issues in your repo.
-                          Currently you can track the average lifetime of your issues, and soon you'll be
-                          able to see how long they've spent in a particular column on your project board
-                          (if the board is connected to Github).
-                        }
+  spec.description   = "Track the cycle-time of your repo's issues"
   spec.homepage      = 'https://github.com/Baron-burton/cykl'
   spec.license       = 'MIT'
 
@@ -27,6 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'netrc', '~> 0.11'
   spec.add_dependency 'octokit', '~> 4.7'
+  spec.add_dependency 'thor', '~> 0.19.1'
 
   spec.add_development_dependency 'bundler', '~> 1.15'
   spec.add_development_dependency 'byebug', '~> 9.0'
