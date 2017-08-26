@@ -57,7 +57,7 @@ module Cykl
     end
 
     def initializer_message(repo, options)
-      if !options[:label].empty?
+      if options.any? && !options[:label].empty?
         puts_and_flush(
           "Attempting to pull in your #{options[:label]} issues \n" +
           "from #{repo}, please wait..."
