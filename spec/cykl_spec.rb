@@ -6,10 +6,10 @@ RSpec.describe Cykl do
   end
 
   context '#time' do
-    it 'calculates the average cycle time for the user/repo' do
-      cykl_time = Cykl.time
-
-      expect(cykl_time).to be_a_kind_of(IO)
+    it 'outputs to STDOUT' do
+      expect {
+        Cykl::Initializer.start(['time'])
+      }.to output(/Pulling in your issues from/).to_stdout
     end
   end
 end
