@@ -1,0 +1,19 @@
+machine:
+  ruby:
+    version: 2.2.4
+  post:
+    commands:
+      - |
+        cat >~/.netrc <<EOF
+        machine api.github.com
+          login $GITHUB_LOGIN
+          password $GITHUB_API_P
+        EOF
+
+dependencies:
+  pre:
+    - gem install bundler -v 1.15.0
+
+test:
+  override:
+    - bundle exec rspec spec/
