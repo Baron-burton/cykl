@@ -6,8 +6,8 @@ machine:
       - |
         cat >~/.netrc <<EOF
         machine api.github.com
-        login $GITHUB_LOGIN
-        password $GITHUB_API_P
+          login $GITHUB_LOGIN
+          password $GITHUB_API_P
         EOF
 
 dependencies:
