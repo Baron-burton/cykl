@@ -2,4 +2,4 @@
 
 require 'cykl'
 
-Cykl.time(ARGV.first)
+Cykl::Initializer.start(ARGV)
